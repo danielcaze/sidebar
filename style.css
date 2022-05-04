@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+:root {
+    --body-bg-color: #dce4e3;
+    --green: #18c29c;
+    --light-green: #8ed7c6;
+      --light-grey: #dce4e3;
+    --text-color: #084236;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+
+    min-height: 100vh;
+    width: 100%;
+
+    overflow: hidden;
+
+    background: var(--body-bg-color);
+}
+
+.sidebar {
+    position: fixed;
+
+    height: 100%;
+    width: 80px;
+
+    padding: 6px 14px;
+
+    top: 0;
+    left: 0;
+
+    background: var(--green);
+
+    transition: all 0.5s ease;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar .logo_details .logo {
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo_details .logo {
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.sidebar #button{
+    position: absolute;
+
+    top: 20px;
+    right: 26px;
+    text-align: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    text-align: center;
+}
+
+.sidebar ul {
+    margin-top: 20px;
+}
+
+.sidebar ul li {
+    position: relative;
+
+    height: 70px;
+    width: 100%;
+
+
+    list-style: none;
+}
+
+.sidebar ul li .links_name, .sidebar ul li img {
+    padding: 0 10px 0 14px;
+}
+
+
+.sidebar ul li .tooltip {
+
+    position: absolute;
+    left: 70px;
+    top: 0;
+    transform: translateY(-50%);
+    border-radius: 6px;
+    height: 35px;
+    width: 122px;
+    background: var(--light-grey);
+    line-height: 35px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar ul li:hover .tooltip {
+    transition: all 0.5s ease;
+    opacity: 1;
+    top: 40%;
+}
+
+.sidebar.open ul li .tooltip {
+    display: none;
+}
+
+.sidebar ul li input {
+    position: absolute;
+
+    height: 50px;
+    width: 100%;
+    padding:0;
+
+    top: 0;
+    left: 0;
+
+    color: var(--text-color);
+    background: var(--light-grey);
+    outline: none;
+    border: none;
+    
+    border-radius: 12px;
+
+    transition: all 0.5s ease;
+}
+
+.sidebar.open ul li input {
+    padding: 0 20px 0 60px;
+}
+
+.sidebar ul li #search_icon {
+    position: absolute;
+    top: 40%;
+    padding-right:14px;
+    transform: translateY(-65%);
+
+    z-index: 99;
+    transition: all 0.5s ease;
+    background: var(--light-grey);
+}
+
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 12px;
+    
+    line-height: 50px;
+
+    transition: all 0.5s ease;
+}
+
+.sidebar ul li a:hover {
+    color: var(--text-color);
+    background: var(--light-green);
+}
+
+.sidebar ul li .links_name {
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.sidebar.open ul li .links_name {
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+
+.sidebar .profile_content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.sidebar .profile_content .profile {
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    background: var(--light-green)
+}
+
+.sidebar .profile_content .profile .profile_details {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar.open .profile .profile_details {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.5s ease;
+}
+
+.profile .profile_details img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.profile .profile_details .name_job {
+    margin-left: 10px;
+}
+
+
+.profile .profile_details .name {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.profile .profile_details .job {
+    font-size: 12px;
+}
+
+.profile #log_out {
+    position: absolute;
+    right: 18px;
+    bottom: 15px;
+    text-align: center;
+    transform: translateX(-50%);
+    min-width: 24px;
+    border-radius: 1px;
+}
+
+.profile.open #log_out {
+    right: 4px;
+}
+
+.home_content {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 78px);
+    left: 80px;
+    transition: all 0.5s ease;
+}
+
+.home_content .text {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 12px;
+}
+
+.sidebar.open ~ .home_content {
+    width: calc(100% - 250px);
+    left: 250px;
+}
